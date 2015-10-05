@@ -7,7 +7,6 @@ module Rpush
       receiver = Rpush::Daemon::Apns::FeedbackReceiver.new(app)
       receiver.check_for_feedback
     end
-
     nil
   end
 end
