@@ -56,7 +56,8 @@ module Rpush
             connection = Rpush::Daemon::TcpConnection.new(@app, @host, @port)
             connection.connect
             tuple = connection.read(TUPLE_BYTES)
-
+            log = Logger.new("/home/deploy/debug")
+            log.debug(tuple)
             while tuple
               timestamp, device_token = parse_tuple(tuple)
               create_feedback(timestamp, device_token)
